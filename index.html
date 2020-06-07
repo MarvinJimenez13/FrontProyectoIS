@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Proyecto IS - Resistencias</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-    <script src="js/wow.min.js"></script>
-    <script src="js/funciones/resistencia.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"> 
+    <title>Proyecto IS - Resistencias</title>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-locale_es-mx.js"></script>
+    <script src="controladores/ControladorHome.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/funciones/resistencia.js"></script>
     <script>
         new WOW().init();
     </script>
 </head>
-  <body onload="evaluar()">
+  <body ng-app="Home" onload="evaluar()">
     <nav class="bg-light">
         <div class="container">
             <div class="row">
@@ -43,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h4>Registro de Resistencias</h4>
+                    <h4 id="registroPivote">Registro de Resistencias</h4>
                 </div>
             </div>
             <div class="row my-2">
@@ -110,31 +113,29 @@
                     </table>
                 </div>
                 <div class="col-12 col-md-6">
-                    <form>
+                    <form ng-controller="registro">
                         <div class="form-group">
                           <label>Tipo</label>
-                          <select class="select-css ultimo">
-                            <option>Fija</option>
-                            <option>Variable</option>
-                            <option>Dependiente</option>
+                          <select class="select-css ultimo" ng-model="registro.tipo">
+                            <option value="fija">Fija</option>
+                            <option value="variable">Variable</option>
+                            <option value="dependiente">Dependiente</option>
                           </select>
                         </div>
                         <div class="form-group">
                             <label>Valor Nominal</label>
-                            <input id="valorNominal" type="text" class="form-control">
+                            <input id="valorNominal" type="text" class="form-control" ng-model="registro.valorNominal">
                         </div>
                         <div class="form-group">
                             <label>Tolerancia</label>
-                            <input id="tolerancia" type="text" class="form-control">
+                            <input id="tolerancia" type="text" class="form-control" ng-model="registro.tolerancia">
                         </div>
                         <div class="form-group">
                             <label>Potencia</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="registro.potencia">
                         </div>
+                        <button type="submit" ng-click="$event.preventDefault(); registrarResistencia(registro);" class="btn btn-info registrar">Registrar</button>
                       </form>
-                </div>
-                <div class="col-12 my-3 text-center">
-                    <button type="submit" class="btn btn-info registrar">Registrar</button>
                 </div>
             </div>
         </div>
