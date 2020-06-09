@@ -3,7 +3,7 @@ var home = function($scope, $http){
 
     $scope.registro = {};
     $scope.link = "index.html#registroPivote";
-    var urlAPI = 'http://localhost:3000/resistencia';
+    var urlAPI = 'https://proyectoresistencias.herokuapp.com/resistencia';
     $scope.registrarResistencia = function(registro){
         $scope.registro.nominal = document.getElementById("valorNominal").value;
         $scope.registro.tolerancia = document.getElementById("tolerancia").value;
