@@ -9,6 +9,8 @@
     <title>Gestión de Resistencias</title>
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-locale_es-mx.js"></script>
+    <script src="assets/js/Session.js"></script>
+    <script src="assets/js/Utils.js"></script>
     <script src="controladores/ControladorGestion.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script>
@@ -32,34 +34,34 @@
       </div>
     </nav>
     <main>
-      <div class="container">
+      <div class="container" ng-controller="gestion">
         <div class="row">
           <div class="col-12 mt-3">
             <h4 id="registroPivote"><b>Gestión de Resistencias Registradas</b></h4>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-4 mt-2 wow animate__backInLeft" data-wow-duration="1s">
+          <div class="col-12 col-md-4 mt-2 wow animate__backInLeft" data-wow-duration="1s" ng-repeat="resistencia in resistencias">
             <div class="card" style="width: 23rem;">
               <table class="ml-2">
                 <tbody>
                   <tr>
                     <td colspan="2">
                       <img class="resistencia" src="assets/images/resistencia/resleft.gif">
-                      <img class="resistencia" id="Rcolor1" src="assets/images/resistencia/Negro.gif">
-                      <img class="resistencia" id="Rcolor2" src="assets/images/resistencia/Negro.gif">
-                      <img class="resistencia" id="Rcolor3" src="assets/images/resistencia/Negro.gif">
+                      <img class="resistencia" id="Rcolor1" src="assets/images/resistencia/{{ resistencia.colores.color1 }}.gif">
+                      <img class="resistencia" id="Rcolor2" src="assets/images/resistencia/{{ resistencia.colores.color2 }}.gif">
+                      <img class="resistencia" id="Rcolor3" src="assets/images/resistencia/{{ resistencia.colores.color3 }}.gif">
                       <img class="resistencia" src="assets/images/resistencia/spacer.gif">
-                      <img class="resistencia" id="Rcolor4" src="assets/images/resistencia/Dorado.gif">
+                      <img class="resistencia" id="Rcolor4" src="assets/images/resistencia/{{ resistencia.colores.color4 }}.gif">
                       <img class="resistencia" src="assets/images/resistencia/resright.gif">
                     </td>
                   </tr>
                 </tbody>
               </table>
               <div class="card-body">
-                <h5 class="card-title">Tipo - Resistencia</h5>
-                <p class="card-text">Valor Nominal: Valor</p>
-                <a href="#" class="btn btn-primary">Gestionar</a>
+                <h5 class="card-title">Tipo - {{ resistencia.tipo }}</h5>
+                <p class="card-text">Valor Nominal: {{ resistencia.valorNominal }}</p>
+                <a href="#" class="btn btn-outline-info">Gestionar</a>
               </div>
             </div>
           </div>

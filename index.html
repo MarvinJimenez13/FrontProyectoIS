@@ -116,24 +116,28 @@
                     <form ng-controller="registro">
                         <div class="form-group">
                           <label>Tipo</label>
-                          <select class="select-css ultimo" ng-model="registro.tipo">
-                            <option value="fija">Fija</option>
-                            <option value="variable">Variable</option>
-                            <option value="dependiente">Dependiente</option>
+                          <select class="select-css ultimo" ng-model="registro.tipo" required>
+                            <option value="Fija">Fija</option>
+                            <option value="Variable">Variable</option>
+                            <option value="Dependiente">Dependiente</option>
                           </select>
                         </div>
                         <div class="form-group">
                             <label>Valor Nominal</label>
-                            <input id="valorNominal" type="text" class="form-control" ng-model="registro.valorNominal">
+                            <input id="valorNominal" type="text" class="form-control" ng-model="registro.valorNominal" required>
                         </div>
                         <div class="form-group">
                             <label>Tolerancia</label>
-                            <input id="tolerancia" type="text" class="form-control" ng-model="registro.tolerancia">
+                            <input id="tolerancia" type="text" class="form-control" ng-model="registro.tolerancia" required>
                         </div>
                         <div class="form-group">
                             <label>Potencia</label>
-                            <input type="text" class="form-control" ng-model="registro.potencia">
+                            <input type="text" class="form-control" ng-model="registro.potencia" required>
                         </div>
+                        <input id="color1Input" type="hidden" ng-model="registro.color1">
+                        <input id="color2Input" type="hidden" ng-model="registro.color2">
+                        <input id="color3Input" type="hidden" ng-model="registro.color3">
+                        <input id="color4Input" type="hidden" ng-model="registro.color4">
                         <button type="submit" ng-click="$event.preventDefault(); registrarResistencia(registro);" class="btn btn-info registrar">Registrar</button>
                       </form>
                 </div>
