@@ -106,7 +106,7 @@
                     <form>
                         <div class="form-group">
                             <label class="lead">Tipo:</label>
-                            <select class="select-css ultimo" ng-model="resistencia.tipo" required>
+                            <select id="tipo" class="select-css ultimo" ng-model="resistencia.tipo" required>
                                 <option value="Fija">Fija</option>
                                 <option value="Variable">Variable</option>
                                 <option value="Dependiente">Dependiente</option>
@@ -128,7 +128,7 @@
                         <input id="color2Input" type="hidden" ng-model="actualizar.color2">
                         <input id="color3Input" type="hidden" ng-model="actualizar.color3">
                         <input id="color4Input" type="hidden" ng-model="actualizar.color4">
-                        <button type="submit" ng-click="$event.preventDefault(); registrarResistencia(actualizar);" class="btn btn-outline-info registrar">Actualizar</button>
+                        <button type="submit" ng-click="$event.preventDefault(); actualizarResistencia(actualizar);" class="btn btn-outline-info registrar">Actualizar</button>
                     </form>
                     <button type="submit" ng-click="$event.preventDefault(); eliminarResistencia(resistencia.idResistencia);" class="mt-1 btn btn-outline-danger registrar">Eliminar</button>
                 </div>
