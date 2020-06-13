@@ -1,5 +1,6 @@
-var myApp = angular.module("Home", []);
-var home = function($scope, $http){
+var myApp = angular.module("Home", ['Session']);
+var home = function($scope, $http, SessionService){
+    SessionService.remove('idResistencia');
 
     $scope.registro = {};
     $scope.link = "index.html#registroPivote";
@@ -28,4 +29,4 @@ var home = function($scope, $http){
 
 }
 
-myApp.controller("registro", ['$scope', '$http', home]);
+myApp.controller("registro", ['$scope', '$http', 'SessionService', home]);

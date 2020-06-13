@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"> 
+    <title>Proyecto IS - Resistencias</title>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-locale_es-mx.js"></script>
+    <script src="controladores/ControladorResistencia.js"></script>
+    <script src="assets/js/Session.js"></script>
+    <script src="assets/js/Utils.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/funciones/resistencia.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+  <body ng-app="Resistencia" onload="evaluar()">
+    <nav class="bg-light sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 text-center p-3">
+                    <img src="assets/images/losvenososlogo.png">
+                </div>
+                <div class="col-12 col-md-8 text-right">
+                    <ul class="mb-0">
+                        <li class="d-inline-block p-3"><a href="index.html" class="lead text-secondary">Inicio</a></li>
+                        <li class="d-inline-block p-3"><a href="gestion.html" class="lead text-secondary">Gestión - Resistencias</a></li>
+                        <li class="d-inline-block p-3"><a href="equipo.html" class="lead text-secondary">Datos - Equipo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="my-2" ng-controller="gestionResistencia">
+        <div class="container">
+            <div class="row p-3">
+                <h4><b>Detalles de la Resistencia:</b></h4>
+                <div class="col-12 col-md-6">
+                    <table class="wow animate__backInLeft" data-wow-duration="1s">
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <img class="resistencia" src="assets/images/resistencia/resleft.gif">
+                                    <img class="resistencia" id="Rcolor1" src="assets/images/resistencia/Negro.gif">
+                                    <img class="resistencia" id="Rcolor2" src="assets/images/resistencia/Negro.gif">
+                                    <img class="resistencia" id="Rcolor3" src="assets/images/resistencia/Negro.gif">
+                                    <img class="resistencia" src="assets/images/resistencia/spacer.gif">
+                                    <img class="resistencia" id="Rcolor4" src="assets/images/resistencia/Dorado.gif">
+                                    <img class="resistencia" src="assets/images/resistencia/resright.gif">
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <select id="color1" class="select-css primero" ng-model="resistencia.color1" onchange="evaluar()">
+                                    <option value="negro">Negro</option>
+                                    <option value="marron">Marrón</option>
+                                    <option value="rojo">Rojo</option>
+                                    <option value="naranja">Naranja</option>
+                                    <option value="amarillo">Amarillo</option>
+                                    <option value="verde">Verde</option>
+                                    <option value="azul">Azul</option>
+                                    <option value="violeta">Violeta</option>
+                                    <option value="gris">Gris</option>
+                                    <option value="blanco">Blanco</option>
+                                </select>
+                                <select id="color2" class="select-css" ng-model="resistencia.color2" onchange="evaluar()">
+                                    <option value="negro">Negro</option>
+                                    <option value="marron">Marrón</option>
+                                    <option value="rojo">Rojo</option>
+                                    <option value="naranja">Naranja</option>
+                                    <option value="amarillo">Amarillo</option>
+                                    <option value="verde">Verde</option>
+                                    <option value="azul">Azul</option>
+                                    <option value="violeta">Violeta</option>
+                                    <option value="gris">Gris</option>
+                                    <option value="blanco">Blanco</option>
+                                </select>
+                                <select id="color3" class="select-css" ng-model="resistencia.color3" onchange="evaluar()">
+                                    <option value="negro">Negro</option>
+                                    <option value="marron">Marrón</option>
+                                    <option value="rojo">Rojo</option>
+                                    <option value="naranja">Naranja</option>
+                                    <option value="amarillo">Amarillo</option>
+                                    <option value="verde">Verde</option>
+                                    <option value="azul">Azul</option>
+                                    <option value="violeta">Violeta</option>
+                                    <option value="gris">Gris</option>
+                                    <option value="blanco">Blanco</option>
+                                    <option value="dorado">Dorado</option>
+                                    <option value="plateado">Plateado</option>
+                                </select>
+                                <select id="color4" class="select-css ultimo" ng-model="resistencia.color4" onchange="evaluar()">
+                                    <option value="ninguna">Ninguno</option>
+                                    <option value="dorado">Dorado</option>
+                                    <option value="plateado">Plateado</option>
+                                </select>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12">
+                    <form>
+                        <div class="form-group">
+                            <label class="lead">Tipo:</label>
+                            <select class="select-css ultimo" ng-model="resistencia.tipo" required>
+                                <option value="Fija">Fija</option>
+                                <option value="Variable">Variable</option>
+                                <option value="Dependiente">Dependiente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Valor Nominal:</label>
+                            <input id="valorNominal" type="text" class="form-control" ng-model="actualizar.valorNominal" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tolerancia:</label>
+                            <input id="tolerancia" type="text" class="form-control" ng-model="actualizar.tolerancia" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="lead">Potencia:</label>
+                            <input id="potencia" type="text" class="form-control" ng-model="actualizar.potencia" required>
+                        </div>
+                        <input id="color1Input" type="hidden" ng-model="actualizar.color1">
+                        <input id="color2Input" type="hidden" ng-model="actualizar.color2">
+                        <input id="color3Input" type="hidden" ng-model="actualizar.color3">
+                        <input id="color4Input" type="hidden" ng-model="actualizar.color4">
+                        <button type="submit" ng-click="$event.preventDefault(); registrarResistencia(actualizar);" class="btn btn-outline-info registrar">Actualizar</button>
+                    </form>
+                    <button type="submit" ng-click="$event.preventDefault(); eliminarResistencia(resistencia.idResistencia);" class="mt-1 btn btn-outline-danger registrar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

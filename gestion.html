@@ -27,7 +27,7 @@
               <div class="col-12 col-md-8 text-right">
                   <ul class="mb-0">
                       <li class="d-inline-block p-3"><a href="index.html" class="lead text-secondary">Inicio</a></li>
-                      <li class="d-inline-block p-3"><a href="#" class="lead text-secondary">Datos - Equipo</a></li>
+                      <li class="d-inline-block p-3"><a href="equipo.html" class="lead text-secondary">Datos - Equipo</a></li>
                   </ul>
               </div>
           </div>
@@ -61,7 +61,7 @@
               <div class="card-body">
                 <h5 class="card-title">Tipo - {{ resistencia.tipo }}</h5>
                 <p class="card-text">Valor Nominal: {{ resistencia.valorNominal }}</p>
-                <a href="#" class="btn btn-outline-info">Gestionar</a>
+                <a href="#" ng-click="detallesResistencia(resistencia._id)" class="btn btn-outline-info">Gestionar</a>
               </div>
             </div>
           </div>
