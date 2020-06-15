@@ -193,8 +193,8 @@ function cuartoColor(){
     var valor;
     var selected = document.getElementById("color4").value;
     if(selected == "ninguna"){
-        document.getElementById("Rcolor4").src = "assets/images/resistencia/spacer.gif";
-        document.getElementById("color4Input").value = "spacer";
+        document.getElementById("Rcolor4").src = "assets/images/resistencia/Spacer.gif";
+        document.getElementById("color4Input").value = "Spacer";
         valor = "20%";
     }
     else if(selected == "dorado"){

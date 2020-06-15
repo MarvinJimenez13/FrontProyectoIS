@@ -23,10 +23,10 @@ var gestion = function($scope, $http, SessionService){
             document.getElementById("valorNominal").value = response.data[0].valorNominal;
             document.getElementById("tolerancia").value = response.data[0].tolerancia;
             document.getElementById("potencia").value = response.data[0].potencia;
-            document.getElementById("Rcolor1").src = "assets/images/resistencia/" + response.data[0].colores.color1 + ".gif";
-            document.getElementById("Rcolor2").src = "assets/images/resistencia/" + response.data[0].colores.color2 + ".gif";
-            document.getElementById("Rcolor3").src = "assets/images/resistencia/" + response.data[0].colores.color3 + ".gif";
-            document.getElementById("Rcolor4").src = "assets/images/resistencia/" + response.data[0].colores.color4 + ".gif";
+            document.getElementById("Rcolor1").src = "assets/images/resistencia/" + response.data[0].colores.color1.charAt(0).toUpperCase() + response.data[0].colores.color1.slice(1) + ".gif";
+            document.getElementById("Rcolor2").src = "assets/images/resistencia/" + response.data[0].colores.color2.charAt(0).toUpperCase() + response.data[0].colores.color2.slice(1) + ".gif";
+            document.getElementById("Rcolor3").src = "assets/images/resistencia/" + response.data[0].colores.color3.charAt(0).toUpperCase() + response.data[0].colores.color3.slice(1) + ".gif";
+            document.getElementById("Rcolor4").src = "assets/images/resistencia/" + response.data[0].colores.color4.charAt(0).toUpperCase() + response.data[0].colores.color4.slice(1) + ".gif";
         });
     }
 
@@ -56,7 +56,7 @@ var gestion = function($scope, $http, SessionService){
         $scope.actualizar.id = idResistencia;
         if($scope.actualizar.tipo != null && $scope.actualizar.nominal != null && $scope.actualizar.tolerancia != null && $scope.actualizar.potencia != null){
             console.log($scope.actualizar);
-            $http.put('https://proyectoresistencias.herokuapp.com/resistencia', JSON.stringify($scope.actualizar), { headers : {'Content-Type': 'application/json'} })
+            $http.put('https://proyectoresistencias.herokuapp.com/actualizarResistencia', JSON.stringify($scope.actualizar), { headers : {'Content-Type': 'application/json'} })
                 .then(function(response) {
                    alert(response.data);
                    window.location.href = 'resistencia.html';

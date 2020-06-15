@@ -7,10 +7,10 @@ var home = function($scope, $http, SessionService){
     var urlAPI = 'https://proyectoresistencias.herokuapp.com/resistencia';
     $scope.registrarResistencia = function(registro){
         var colores = {
-            color1: document.getElementById("color1Input").value,
-            color2: document.getElementById("color2Input").value,
-            color3: document.getElementById("color3Input").value,
-            color4: document.getElementById("color4Input").value
+            color1: document.getElementById("color1Input").value.charAt(0).toUpperCase() + document.getElementById("color1Input").value.slice(1),
+            color2: document.getElementById("color2Input").value.charAt(0).toUpperCase() + document.getElementById("color2Input").value.slice(1),
+            color3: document.getElementById("color3Input").value.charAt(0).toUpperCase() + document.getElementById("color3Input").value.slice(1),
+            color4: document.getElementById("color4Input").value.charAt(0).toUpperCase() + document.getElementById("color4Input").value.slice(1),
         }
         $scope.registro.nominal = document.getElementById("valorNominal").value;
         $scope.registro.tolerancia = document.getElementById("tolerancia").value;
