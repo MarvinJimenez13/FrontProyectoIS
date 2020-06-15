@@ -9,4 +9,4 @@ Vazquez Rangel  Erick<br>
 
 ## Vista previa
 
-! [] (/ preview.jpg)
+! [] (https://github.com/MarvinJimenez13/FrontProyectoIS/blob/master/assets/images/preview.jpg)
