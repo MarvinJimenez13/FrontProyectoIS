@@ -9,7 +9,7 @@ var gestion = function($scope, $http, SessionService){
     $scope.actualizar = {};
     
     $scope.cargarResistencia = function(){
-        $http.get('http://localhost:3000/resistencia/' + idResistencia).then(function(response){ 
+        $http.get('https://proyectoresistencias.herokuapp.com/resistencia/' + idResistencia).then(function(response){ 
             $scope.resistencia.tipo = response.data[0].tipo;
             $scope.resistencia.color1 = response.data[0].colores.color1.toLowerCase();
             document.getElementById("color1Input").value = response.data[0].colores.color1.toLowerCase();
@@ -34,7 +34,7 @@ var gestion = function($scope, $http, SessionService){
         var confirmar = confirm("¿Desea eliminar la resistencia?");
         if(confirmar){
             $scope.eliminar.id = idResistencia;
-            $http.post('http://localhost:3000/eliminarResistencia', JSON.stringify($scope.eliminar), { headers : {'Content-Type': 'application/json'} }).then(function(response){
+            $http.post('https://proyectoresistencias.herokuapp.com/eliminarResistencia', JSON.stringify($scope.eliminar), { headers : {'Content-Type': 'application/json'} }).then(function(response){
                 alert(response.data);
                 window.location.href = 'gestion.html';
             });
@@ -56,7 +56,7 @@ var gestion = function($scope, $http, SessionService){
         $scope.actualizar.id = idResistencia;
         if($scope.actualizar.tipo != null && $scope.actualizar.nominal != null && $scope.actualizar.tolerancia != null && $scope.actualizar.potencia != null){
             console.log($scope.actualizar);
-            $http.put('http://localhost:3000/resistencia', JSON.stringify($scope.actualizar), { headers : {'Content-Type': 'application/json'} })
+            $http.put('https://proyectoresistencias.herokuapp.com/resistencia', JSON.stringify($scope.actualizar), { headers : {'Content-Type': 'application/json'} })
                 .then(function(response) {
                    alert(response.data);
                    window.location.href = 'resistencia.html';

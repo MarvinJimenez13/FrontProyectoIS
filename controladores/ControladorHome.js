@@ -4,7 +4,7 @@ var home = function($scope, $http, SessionService){
 
     $scope.registro = {};
     $scope.link = "index.html#registroPivote";
-    var urlAPI = 'http://localhost:3000/resistencia';
+    var urlAPI = 'https://proyectoresistencias.herokuapp.com/resistencia';
     $scope.registrarResistencia = function(registro){
         var colores = {
             color1: document.getElementById("color1Input").value,

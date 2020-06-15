@@ -4,7 +4,7 @@ var gestion = function($scope, $http, SessionService){
     SessionService.remove('idResistencia');
     
     $scope.cargarResistencias = function(){
-        $http.get('http://localhost:3000/resistencias').then(function(response){
+        $http.get('https://proyectoresistencias.herokuapp.com/resistencias').then(function(response){
             $scope.resistencias = response.data;
         });
     }
