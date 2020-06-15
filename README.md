@@ -9,4 +9,4 @@ Vazquez Rangel  Erick<br>
 
 ## Vista previa
 
-! [V] (preview.jpg)
+![V](preview.jpg)
